@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+  width: 100%;
+  font-family: Helvetica, sans-serif;
+  background: #0D1117;
+  color: #eee;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.status-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.score {
+  font-size: clamp(1rem, 2.2vw, 1.5rem);
+}
+
+#board {
+  width: min(90vmin, 90vw);
+  aspect-ratio: 1 / 1;
+  max-width: 640px;
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+  background: #0D1117;
+  border: 1px solid #0D1117;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.cell {
+  border: 3px solid #0D1117;
+  background: #151B23;
+  border-radius: 4px;
+  transition: background 0.1s ease;
+}
+
+.cell.snake {
+  background: aliceblue;
+}
+
+.cell.food {
+  background: crimson;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: #000000bf;
+  padding: 2rem;
+}
+
+#gameover {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: aliceblue;
+  border-radius: 6px;
+  padding: 1.5rem 3rem;
+  color: #121212;
+  text-align: center;
+}
+
+#restart {
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  padding: 1rem;
+  cursor: pointer;
+  background: #121212;
+  color: aliceblue;
+}
+
+@media (max-width: 500px) {
+  main {
+    padding: 12px;
+  }
+
+  .score {
+    font-size: 4vw;
+  }
+}
+
+
